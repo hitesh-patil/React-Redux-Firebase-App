@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>customEvents</title>
+</head>
+<body>
+  <h1 id="heading">
+    Hey there click me
+  </h1>
+  <script>
+    const changeColor = new CustomEvent('changeColor', {detail: {eventInit: Date.now()}});
+    
+    document.addEventListener('DOMContentLoaded', function(ev){
+      
+      let h1 = document.querySelector('#heading');
+      
+      h1.addEventListener('click', function() {
+        setTimeout(function() {
+          h1.addEventListener('changeColor', changeColorFunc);
+          h1.dispatchEvent(changeColor);
+        }, 5000);
+      });
+
+      function changeColorFunc(ev) {
+        console.log(ev.type, ev.target);
+        ev.target.style.color = 'red';
+      }
+
+    });
+  </script>
+</body>
+</html>
