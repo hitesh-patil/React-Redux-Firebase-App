@@ -14,6 +14,7 @@ module.exports = {
     path: DIST_DIR,
     filename: '[hash].js'
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
