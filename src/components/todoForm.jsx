@@ -1,10 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { AddTodo } from '../actions/todoActions';
 
 class TodoForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       todoName: '',
       todoDesc: '',
@@ -13,7 +11,7 @@ class TodoForm extends React.Component {
     }
     this.handleChangeFieldtext = this.handleChangeFieldtext.bind(this);
   }
-  
+
   handleChangeFieldtext(event) {
     const { name, value } = event.target;
     this.setState({
@@ -35,7 +33,7 @@ class TodoForm extends React.Component {
               data-value={this.state.todoNamePresent}
               className="form-control"
               autoFocus
-              />
+            />
             <label>Enter todo activity</label>
           </div>
           <div className="d-flex textField">
@@ -45,18 +43,20 @@ class TodoForm extends React.Component {
               onChange={(event) => this.handleChangeFieldtext(event)}
               data-value={this.state.todoDescPresent}
               className="form-control"
-              />
+            />
             <label>Enter todo description</label>
           </div>
           <div className="formBtns">
             <button
               type="submit"
-              onClick={(e) => {
-                e.preventDefault();
-                this.props.dispatch(AddTodo(this.state));
-              }}
+              onClick={
+                (e) => {
+                  e.preventDefault();
+                  this.props.AddTodo(this.state);
+                }
+              }
               className="btn submitBtn"
-              >SUBMIT</button>
+            >SUBMIT</button>
           </div>
         </form>
       </div>
@@ -64,4 +64,4 @@ class TodoForm extends React.Component {
   }
 }
 
-export default connect()(TodoForm);
+export default TodoForm;

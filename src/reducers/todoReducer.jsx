@@ -3,14 +3,13 @@ const initialState = {
 }
 
 const TodoReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case "ADD_TODO":
-    return [
-      ...state,
-      action.todo
-    ]
+      return {
+        todo: [...state.todo, action.todo],
+      }
     default:
-    return state;
+      return state;
   }
 }
 
