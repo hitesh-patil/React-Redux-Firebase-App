@@ -29,6 +29,7 @@ class TodoForm extends React.Component {
             <input
               type="text"
               name="todoName"
+              value={this.state.todoName}
               onChange={(event) => this.handleChangeFieldtext(event)}
               data-value={this.state.todoNamePresent}
               className="form-control"
@@ -40,6 +41,7 @@ class TodoForm extends React.Component {
             <input
               type="text"
               name="todoDesc"
+              value={this.state.todoDesc}
               onChange={(event) => this.handleChangeFieldtext(event)}
               data-value={this.state.todoDescPresent}
               className="form-control"
@@ -53,6 +55,10 @@ class TodoForm extends React.Component {
                 (e) => {
                   e.preventDefault();
                   this.props.AddTodo(this.state);
+                  this.setState({
+                    todoDesc: '',
+                    todoName: '',
+                  });
                 }
               }
               className="btn submitBtn"

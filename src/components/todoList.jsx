@@ -7,13 +7,13 @@ class TodoList extends React.Component {
 
   renderListOfTodos() {
     if (this.props.getListOfTodos) {
-      return this.props.getListOfTodos.map((todoItem) => {
-        return (<li>
-          <p>
+      return this.props.getListOfTodos.map((todoItem, index) => {
+        return (<li key={index} className="listItem">
+          <p className="m-0">
             <span>Todo Name:</span>
             <span>{todoItem.todoName}</span>
           </p>
-          <p>
+          <p className="m-0">
             <span>Todo Description:</span>
             <span>{todoItem.todoDesc}</span>
           </p>
@@ -26,7 +26,7 @@ class TodoList extends React.Component {
   render() {
     return (
       <div className="col">
-        <ul className="list-unstyled">
+        <ul className="list-unstyled todoList">
           {this.renderListOfTodos()}
         </ul>
       </div>

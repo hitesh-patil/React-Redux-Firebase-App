@@ -46,3 +46,21 @@
     color: #ffffff
     font-weight: 600
     padding: 12px
+.todoList
+  .listItem
+    border: 1px solid #fdc79b
+    background: #fff9f5
+    padding: 12px 15px
+    animation: scaleNbounce 300ms
+    margin-bottom: 20px
+
+@keyframes scaleNbounce
+  33%
+    transform: scale(0.8)
+    transition: transform 500ms ease-in
+  66%
+    transform: scale(0.6)
+    transition: transform 300ms ease-in
+  99%
+    transform: scale(1)
+    transition: transform 100ms ease-in
